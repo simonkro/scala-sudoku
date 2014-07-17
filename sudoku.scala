@@ -1,3 +1,5 @@
+import org.msgpack._
+
 class Sudoku(source: String) {
   val board = source.toList.filter("123456789_." contains _).map(_.asDigit).toArray
 
