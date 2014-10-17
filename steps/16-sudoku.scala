@@ -1,4 +1,5 @@
 object Sudoku extends App {
+  type Board = Vector[Int]
 
   def neighbour(i: Int, j: Int): Boolean = {
     def box(n: Int) = (n / 27 * 3) + (n % 9) / 3 
@@ -9,11 +10,11 @@ object Sudoku extends App {
     (0 to 80).filter(j => neighbour(i, j))
   )
 
-  def solve(board: Vector[Int], index: Int = 0): Option[Vector[Int]] = {
+  def solve(board: Board, index: Int = 0): Option[Board] = {
     def taken(number: Int): Boolean = 
       neighbours(index).exists(n => board(n) == number)
     
-    def guess(number: Int): Option[Vector[Int]] = 
+    def guess(number: Int): Option[Board] = 
       if (index > 80) Some(board)
       else if (board(index) > 0 && board(index) != number || taken(number)) None
       else solve(board.updated(index, number), index + 1)

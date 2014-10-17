@@ -5,9 +5,9 @@ object Sudoku extends App {
     (i != j) && (i % 9 == j % 9 || i / 9 == j / 9 || box(i) == box(j))
   }
 
-  val neighbours = (0 to 80).map(
+  def neighbours(i: Int): IndexedSeq[Int] = {
     (0 to 80).filter(j => neighbour(i, j))
-  )
+  }
 
   def solve(board: Vector[Int], index: Int = 0): Option[Vector[Int]] = {
     def taken(number: Int): Boolean = 
