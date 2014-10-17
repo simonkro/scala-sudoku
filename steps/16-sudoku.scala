@@ -1,7 +1,7 @@
 object Sudoku extends App {
   type Board = Vector[Int]
 
-  def neighbour(i: Int, j: Int): Boolean = {
+  def neighbour(i: Int, j: Int) = {
     def box(n: Int) = (n / 27 * 3) + (n % 9) / 3 
     (i != j) && (i % 9 == j % 9 || i / 9 == j / 9 || box(i) == box(j))
   }

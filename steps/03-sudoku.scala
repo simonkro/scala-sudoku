@@ -1,6 +1,6 @@
 object Sudoku extends App {
 
-  def neighbour(i: Int, j: Int): Boolean = {
+  def neighbour(i: Int, j: Int) = {
     i % 9 == j % 9 || i / 9 == j / 9
   }
 

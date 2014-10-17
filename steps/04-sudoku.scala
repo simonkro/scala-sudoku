@@ -1,10 +1,10 @@
 object Sudoku extends App {
 
-  def box(n: Int): Int = {
+  def box(n: Int) = {
     (n / 27 * 3) + (n % 9) / 3 
   }
 
-  def neighbour(i: Int, j: Int): Boolean = {
+  def neighbour(i: Int, j: Int) = {
     i % 9 == j % 9 || i / 9 == j / 9 || box(i) == box(j)
   }
 
